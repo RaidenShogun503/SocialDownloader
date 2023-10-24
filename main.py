@@ -3,7 +3,8 @@ import youtube_dl
 import instaloader
 import tiktok_downloader
 import requests
-
+import re
+import random
 
 print("-------------------------------------")
 print("SocialDownloader")
@@ -55,11 +56,29 @@ elif loai_luachon == 4:
     print("-----------------------")
     print("Tiktok Downloader")
     print("-----------------------")
-    url = input("Nhập đường link cần tải video:")
     
-    response = requests.get(url)
+    url = "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index"
 
-    video_data = response.content
+    layurl = input("Dán link cần tải video:")
 
-    with open("video.mp4", "wb") as f:
-        f.write(video_data)
+    querystring = {"url":layurl}
+
+    headers = {
+	    "X-RapidAPI-Key": "4ba4421df8mshd017caa9b41abdfp15e1b2jsn79bc2f27180f",
+	    "X-RapidAPI-Host": "tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+
+    video = response.text
+    video = video.replace('[','')
+
+    link = re.findall(r'{"video":"([^"]+)"',video)
+    url_video = ''.join(link)
+    print(url_video)
+    names = random.randrange(1, 1000) 
+    name = 'video'+str(names)+'.mp4'
+
+    r = requests.get(url_video)
+    with open(name, 'wb') as f:
+        f.write(r.content)
