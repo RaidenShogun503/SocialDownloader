@@ -5,11 +5,33 @@ import tiktok_downloader
 import requests
 import re
 import random
+import colorama
 
-print("-------------------------------------")
-print("SocialDownloader")
+gachngang = "----------------------------------------------------------------------------------------------------------------------------------------------"
+
+chumodau = '''\033[35m
+ ## ##    ## ##    ## ##     ####     ##     ####     ### ##    ## ##   ##   ##  ###  ##  ####      ## ##     ##     ### ##   ### ###  ### ##   
+##   ##  ##   ##  ##   ##     ##       ##     ##       ##  ##  ##   ##  ##   ##    ## ##   ##      ##   ##     ##     ##  ##   ##  ##   ##  ##  
+####     ##   ##  ##          ##     ## ##    ##       ##  ##  ##   ##  ##   ##   # ## #   ##      ##   ##   ## ##    ##  ##   ##       ##  ##  
+ #####   ##   ##  ##          ##     ##  ##   ##       ##  ##  ##   ##  ## # ##   ## ##    ##      ##   ##   ##  ##   ##  ##   ## ##    ## ##   
+    ###  ##   ##  ##          ##     ## ###   ##       ##  ##  ##   ##  # ### #   ##  ##   ##      ##   ##   ## ###   ##  ##   ##       ## ##   
+##   ##  ##   ##  ##   ##     ##     ##  ##   ##  ##   ##  ##  ##   ##   ## ##    ##  ##   ##  ##  ##   ##   ##  ##   ##  ##   ##  ##   ##  ##  
+ ## ##    ## ##    ## ##     ####   ###  ##  ### ###  ### ##    ## ##   ##   ##  ###  ##  ### ###   ## ##   ###  ##  ### ##   ### ###  #### ##                                                                                                                                                
+'''
+tiktoktext = '''\033[36m
+#### ##    ####   ##  ###  #### ##   ## ##   ##  ###  ### ##    ## ##   ##   ##  ###  ##  ####      ## ##     ##     ### ##   ### ###  ### ##   
+# ## ##     ##    ##  ##   # ## ##  ##   ##  ##  ##    ##  ##  ##   ##  ##   ##    ## ##   ##      ##   ##     ##     ##  ##   ##  ##   ##  ##  
+  ##        ##    ## ##      ##     ##   ##  ## ##     ##  ##  ##   ##  ##   ##   # ## #   ##      ##   ##   ## ##    ##  ##   ##       ##  ##  
+  ##        ##    ## ##      ##     ##   ##  ## ##     ##  ##  ##   ##  ## # ##   ## ##    ##      ##   ##   ##  ##   ##  ##   ## ##    ## ##   
+  ##        ##    ## ###     ##     ##   ##  ## ###    ##  ##  ##   ##  # ### #   ##  ##   ##      ##   ##   ## ###   ##  ##   ##       ## ##   
+  ##        ##    ##  ##     ##     ##   ##  ##  ##    ##  ##  ##   ##   ## ##    ##  ##   ##  ##  ##   ##   ##  ##   ##  ##   ##  ##   ##  ##  
+ ####      ####   ##  ###   ####     ## ##   ##  ###  ### ##    ## ##   ##   ##  ###  ##  ### ###   ## ##   ###  ##  ### ##   ### ###  #### ##                                                                                                                                                 
+'''
+
+print(gachngang)
+print(chumodau)
 print("Made By Nguyen Hieu(RaidenShogun508)")
-print("-------------------------------------")
+print(gachngang)
 
 print("Vui lòng chọn nền tảng cần tải video")
 print("1.Youtube")
@@ -28,9 +50,9 @@ while loai_luachon is None:
         luachon = input(">>>")
 
 if loai_luachon == 1:
-    print("-----------------------------")
+    print(gachngang)
     print("Youtube Downloader")
-    print("-----------------------------")
+    print(gachngang)
     url = input("Dán link cần tải video vào đây:")
 
     # Download video
@@ -42,20 +64,20 @@ if loai_luachon == 1:
     print("------------------------")
 
 elif loai_luachon == 2:
-    print("------------------------")
+    print(gachngang)
     print("Facebook Downloader")
-    print("------------------------")
-    url = input("Nhập đường link cần tải video vào đây:")
-    with youtube_dl.YoutubeDL({'format': 'best'}) as ydl:
-        ydl.download([url])
+    print(gachngang)
+    
+    
+
     print("-------------------------")
     print("Thank You!")
     print("-------------------------")
 
 elif loai_luachon == 4:
-    print("-----------------------")
-    print("Tiktok Downloader")
-    print("-----------------------")
+    print(gachngang)
+    print(tiktoktext)
+    print(gachngang)
     
     url = "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index"
 
