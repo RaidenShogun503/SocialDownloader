@@ -129,6 +129,10 @@ elif loai_luachon == 2:
     print(thankyoutext)
     print(gachngang)
 
+elif loai_luachon == 3:
+    print(gachngang)
+    print("Hiện tại chức năng này không khả dụng,Vui lòng quay lại sau")
+    print(gachngang)
 elif loai_luachon == 4:
     print(gachngang)
     print(tiktoktext)
