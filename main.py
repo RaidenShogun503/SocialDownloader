@@ -6,6 +6,7 @@ import requests
 import re
 import random
 import colorama
+import json
 
 gachngang = "----------------------------------------------------------------------------------------------------------------------------------------------"
 
@@ -18,6 +19,17 @@ chumodau = '''\033[35m
 ##   ##  ##   ##  ##   ##     ##     ##  ##   ##  ##   ##  ##  ##   ##   ## ##    ##  ##   ##  ##  ##   ##   ##  ##   ##  ##   ##  ##   ##  ##  
  ## ##    ## ##    ## ##     ####   ###  ##  ### ###  ### ##    ## ##   ##   ##  ###  ##  ### ###   ## ##   ###  ##  ### ##   ### ###  #### ##                                                                                                                                                
 '''
+facebooktext = '''\033[37m
+ ######     ##      ####    ######   #####     ####     ####    ##  ##   ####      ####    ##   ##  ##  ##   ##        ####      ##     ####     ######   #####   
+ ##        ####    ##  ##   ##       ##  ##   ##  ##   ##  ##   ## ##    ## ##    ##  ##   ##   ##  ### ##   ##       ##  ##    ####    ## ##    ##       ##  ##  
+ ##       ##  ##   ##       ##       ##  ##   ##  ##   ##  ##   ####     ##  ##   ##  ##   ##   ##  ######   ##       ##  ##   ##  ##   ##  ##   ##       ##  ##  
+ ####     ######   ##       ####     #####    ##  ##   ##  ##   ###      ##  ##   ##  ##   ## # ##  ######   ##       ##  ##   ######   ##  ##   ####     #####   
+ ##       ##  ##   ##       ##       ##  ##   ##  ##   ##  ##   ####     ##  ##   ##  ##   #######  ## ###   ##       ##  ##   ##  ##   ##  ##   ##       ####    
+ ##       ##  ##   ##  ##   ##       ##  ##   ##  ##   ##  ##   ## ##    ## ##    ##  ##   ### ###  ##  ##   ##       ##  ##   ##  ##   ## ##    ##       ## ##   
+ ##       ##  ##    ####    ######   #####     ####     ####    ##  ##   ####      ####    ##   ##  ##  ##   ######    ####    ##  ##   ####     ######   ##  ##
+'''
+
+
 tiktoktext = '''\033[36m
 #### ##    ####   ##  ###  #### ##   ## ##   ##  ###  ### ##    ## ##   ##   ##  ###  ##  ####      ## ##     ##     ### ##   ### ###  ### ##   
 # ## ##     ##    ##  ##   # ## ##  ##   ##  ##  ##    ##  ##  ##   ##  ##   ##    ## ##   ##      ##   ##     ##     ##  ##   ##  ##   ##  ##  
@@ -83,14 +95,39 @@ if loai_luachon == 1:
 
 elif loai_luachon == 2:
     print(gachngang)
-    print("Facebook Downloader")
+    print(facebooktext)
     print(gachngang)
+#tach link bang api 
+    def get_download_high_quality_url(json_data):
+
+        links =json_data['links']
+        downloads_high_quality_url = links["Download High Quality"]
+        return downloads_high_quality_url
+    url = "https://facebook-reel-and-video-downloader.p.rapidapi.com/app/main.php"
+    nhapurl = input("Nhập link Facebook cần tải video:")
+    querystring = {"url":nhapurl}
+    
+    headers = {
+        "X-RapidAPI-Key": "4ba4421df8mshd017caa9b41abdfp15e1b2jsn79bc2f27180f",
+        "X-RapidAPI-Host": "facebook-reel-and-video-downloader.p.rapidapi.com"
+    }
+    response = requests.get(url, headers=headers, params=querystring)
+    json_data = response.json()
+    download_high_quality_url = get_download_high_quality_url(json_data)
+    print(download_high_quality_url)
+    r = requests.get(download_high_quality_url)
+    names = random.randrange(1,10000)
+    name = 'video'+str(names)+'.mp4'
+    r = requests.get(download_high_quality_url)
+    with open (name, 'wb') as f:
+        f.write(r.content)
+
     
     
 
-    print("-------------------------")
-    print("Thank You!")
-    print("-------------------------")
+    print(gachngang)
+    print(thankyoutext)
+    print(gachngang)
 
 elif loai_luachon == 4:
     print(gachngang)
