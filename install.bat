@@ -13,7 +13,6 @@ curl -o run.bat https://raw.githubusercontent.com/RaidenShogun503/SocialDownload
 git clone https://github.com/RaidenShogun503/SocialDownloader
 cd SocialDownloader
 pip install -r requirements.txt
-curl -o run.bat https://raw.githubusercontent.com/RaidenShogun503/SocialDownloader/main/run.bat
 echo  ####      ####    ##  ##   ######  
 echo ## ##    ##  ##   ### ##   ##      
 echo ##  ##   ##  ##   ######   ##      
